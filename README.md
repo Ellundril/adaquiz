@@ -1,4 +1,10 @@
-# AdaQuiz — Projet de départ
+# Les sportifs français
+Violaine et Julien
+
+
+
+
+<!-- # AdaQuiz — Projet de départ
 
 Bienvenue sur le projet de départ AdaQuiz ! Ce repo contient la structure de base du quiz. À vous de le compléter.
 
@@ -26,4 +32,4 @@ npx live-server
 
 Ouvrir ensuite `http://localhost:8080`.
 
-> ⚠️ Ne pas ouvrir `index.html` directement dans le navigateur — `fetch` ne fonctionne pas sans serveur local.
+> ⚠️ Ne pas ouvrir `index.html` directement dans le navigateur — `fetch` ne fonctionne pas sans serveur local. -->
