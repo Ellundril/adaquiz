@@ -2,12 +2,64 @@
    ADAQUIZ — style.css
 ════════════════════════════════════════════ */
 
-/* La classe .cache masque un écran */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .cache {
-  display: none;
+  display: none; /* La classe .cache masque un écran */
+}
+
+body {
+  background-color: #0B1F33;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 2;
+}
+
+#ecran-accueil {
+  background-color: #1E3A5F;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 3px solid black;
+  border-radius: 12px;
+}
+
+.titre-accueil {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.accueil img {
+  max-width: 70%;
+}
+
+.regles {
+  padding: 2rem;
+}
+
+.regles ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button {
+  border: 3px solid white;
+  border-radius: 12px;
+  background-color: #1E3A5F;
+  color: white;
+  font-size: 1.5rem;
+  width: 60%;
+  height: 50px;
+  margin: 2rem;
 }
