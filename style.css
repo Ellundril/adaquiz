@@ -3,6 +3,11 @@
 ════════════════════════════════════════════ */
 
 /* La classe .cache masque un écran */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .cache {
   display: none;
 }
