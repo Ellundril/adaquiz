@@ -1,12 +1,16 @@
 /* ════════════════════════════════════════════
    ADAQUIZ — style.css
 ════════════════════════════════════════════ */
-*{
+
+
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-/* La classe .cache masque un écran */
+
 .cache {
-  display: none;
+  display: none; /* La classe .cache masque un écran */
 }
 
 /* ====================================================
@@ -19,6 +23,82 @@ body{
   background-repeat: no-repeat;
   background-color: #0f172a;
   color:#F8FAFC;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.6rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ====================================================
+Section Ecran d'accueil 
+======================================*/
+#ecran-accueil {
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 2px 8px 3px  black;
+  height: 90%;
+}
+
+.titre-accueil {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.titre-accueil h1 {
+  padding-bottom: 1rem;
+}
+
+.ecran img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.regles {
+  padding: 1rem;
+}
+
+.regles h3 {
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.regles ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.btn-commencer {
+  border: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 2px #4a1640;
+  background-color: #2563EB;
+  color: white;
+  font-size: 1.5rem;
+  width: 60%;
+  height: 3rem;
+  margin-top: 2rem;
+=======
 }
 
 /* ==========================================================
