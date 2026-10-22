@@ -7,10 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.cache {
-  display: none; /* La classe .cache masque un écran */
+  overflow: hidden;
 }
 
 /* ====================================================
@@ -23,23 +20,19 @@ body{
   background-repeat: no-repeat;
   background-color: #0f172a;
   color:#F8FAFC;
-
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.6rem;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   margin: 0;
 }
 
 /* ====================================================
-Section Ecran d'accueil 
+Style des sections 
 ======================================*/
-#ecran-accueil {
+
+.ecran {
   background-color: #0f172a;
   display: flex;
   flex-direction: column;
@@ -52,8 +45,12 @@ Section Ecran d'accueil
   border: 3px solid black;
   border-radius: 12px;
   box-shadow: 2px 8px 3px  black;
-  height: 90%;
+  min-height: 90vh;
 }
+
+/* ====================================================
+Section Ecran d'accueil 
+======================================*/
 
 .titre-accueil {
   padding-top: 1rem;
@@ -66,7 +63,6 @@ Section Ecran d'accueil
 
 .ecran img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
@@ -98,7 +94,20 @@ Section Ecran d'accueil
   width: 60%;
   height: 3rem;
   margin-top: 2rem;
-=======
+}
+
+/* ==========================================================
+SECTION Question
+==============================================================*/
+
+.titre-question {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.question {
+  padding: 1rem;
 }
 
 /* ==========================================================
@@ -139,4 +148,12 @@ SECTION RESULTATS
 }
 .gif{
   max-width: 98%;
+}
+
+/* ==========================================================
+Regle pour écrans-caché
+==============================================================*/
+
+.cache {
+  display: none; /* La classe .cache masque un écran */
 }
