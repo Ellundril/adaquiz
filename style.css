@@ -7,23 +7,21 @@
   box-sizing: border-box;
 }
 
-
-
 /* ====================================================
 BODY 
 ======================================*/
-body{
+body {
   background-image: url(images/fond-ecran.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #0f172a;
-  color:#F8FAFC;
+  color: #f8fafc;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.6rem;
   height: 100%;
- /*  display: flex;
+  /*  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -35,7 +33,7 @@ body{
 Style des cartes de base
 ======================================*/
 
-.ecran{
+.ecran {
   background-color: #0f172a;
   display: flex;
   flex-direction: column;
@@ -47,7 +45,7 @@ Style des cartes de base
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 12px;
-  box-shadow: 2px 8px 3px  black;
+  box-shadow: 2px 8px 3px black;
   height: 90vh;
 }
 /* ====================================================
@@ -63,7 +61,7 @@ Section Ecran d'accueil
   padding-bottom: 1rem;
 }
 
-.image-accueil{
+.image-accueil {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -88,11 +86,25 @@ Section Ecran d'accueil
 }
 
 /* ==========================================================
+FEEDBACK ET BOUTON SUIVANT
+==============================================================*/
+.fleche {
+  display: inline-block;
+  border: solid white;
+  border-width: 4px 4px 0 0;
+  border-radius: 0 3px 0 0;
+  height: 12px;
+  width: 12px;
+  margin-left: 15px;
+  transform: rotate(45deg);
+}
+
+/* ==========================================================
 SECTION RESULTATS 
 ==============================================================*/
 
-.note{
-  background-color: #10B981;
+.note {
+  background-color: #10b981;
   padding: 0.8rem 1rem;
   border-radius: 5px;
   font-size: 2rem;
@@ -100,24 +112,24 @@ SECTION RESULTATS
   color: #062d54;
 }
 
-.btn{
+.btn {
   all: unset;
-  background-color: #2563EB;
+  background-color: #2563eb;
   padding: 0.8rem 1rem;
   border-radius: 10px;
   min-width: 120px;
   box-shadow: 3px 3px 2px #062d54;
   margin: 0.5rem 0;
 }
-.phrase-finale{
+.phrase-finale {
   margin: 0;
   font-size: 1.5rem;
 }
-.mention{
+.mention {
   font-size: 2rem;
 }
-.gif{
-  width : 100%;
+.gif {
+  width: 100%;
   height: auto;
 }
 
