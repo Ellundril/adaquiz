@@ -29,7 +29,7 @@
         class="image-accueil"
       />
       <div class="regles">
-        <h3>Règles du jeu :</h3>
+        <!-- <h3>Règles du jeu :</h3> -->
         <p>
           Teste tes connaissances sur les sportifs français à travers un quiz
         </p>
@@ -49,7 +49,26 @@
        ÉCRAN 2 — QUESTION
        Caché au départ. Affiché pendant le quiz.
   ════════════════════════════════════════ -->
-    <section id="ecran-question" class="ecran cache"></section>
+    <section id="ecran-question" class="ecran cache">
+      <form class="choix-reponse">
+        <label class="reponse" for="reponseA">
+          Italie
+          <input type="radio" id="reponseA" name="choix" />
+        </label>
+        <label class="reponse" for="reponseB">
+          Brésil
+          <input type="radio" id="reponseB" name="choix" />
+        </label>
+        <label class="reponse" for="reponseC">
+          Croatie
+          <input type="radio" id="reponseC" name="choix" />
+        </label>
+        <label class="reponse" for="reponseD">
+          Portugal
+          <input type="radio" id="reponseD" name="choix" />
+        </label>
+      </form>
+    </section>
 
     <!-- ═══════════════════════════════════════
        ÉCRAN 3 — RÉSULTATS
