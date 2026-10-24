@@ -17,10 +17,12 @@ body {
   background-repeat: no-repeat;
   background-color: #0f172a;
   color: #f8fafc;
+  color: #f8fafc;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.6rem;
   height: 100%;
+  /*  display: flex;
   /*  display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +36,7 @@ Style des cartes de base
 ======================================*/
 
 .ecran {
+.ecran {
   background-color: #0f172a;
   display: flex;
   flex-direction: column;
@@ -45,6 +48,7 @@ Style des cartes de base
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 12px;
+  box-shadow: 2px 8px 3px black;
   box-shadow: 2px 8px 3px black;
   height: 90vh;
 }
@@ -61,6 +65,7 @@ Section Ecran d'accueil
   padding-bottom: 1rem;
 }
 
+.image-accueil {
 .image-accueil {
   width: 100%;
   height: auto;
@@ -84,7 +89,25 @@ Section Ecran d'accueil
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+/* ==========================================================
+CHOIX MULTIPLES
+============================================================= */
+.choix-reponse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+}
+input {
+  display: none;
+}
 
+.reponse {
+  font-size: 1.5rem;
+  padding: 1rem 1.2rem;
+  background-image: linear-gradient(45deg, #341343 70%, #7c6480);
+  border-radius: 10px;
+}
 /* ==========================================================
 FEEDBACK ET BOUTON SUIVANT
 ==============================================================*/
@@ -105,6 +128,8 @@ SECTION RESULTATS
 
 .note {
   background-color: #10b981;
+.note {
+  background-color: #10b981;
   padding: 0.8rem 1rem;
   border-radius: 5px;
   font-size: 2rem;
@@ -114,20 +139,24 @@ SECTION RESULTATS
 
 .btn {
   all: unset;
-  background-color: #2563eb;
+  background-image: linear-gradient(45deg, #2563eb 75%, rgb(175, 185, 241));
   padding: 0.8rem 1rem;
   border-radius: 10px;
   min-width: 120px;
-  box-shadow: 3px 3px 2px #062d54;
+  box-shadow: 3px 3px 2px black;
   margin: 0.5rem 0;
 }
+.phrase-finale {
 .phrase-finale {
   margin: 0;
   font-size: 1.5rem;
 }
 .mention {
+.mention {
   font-size: 2rem;
 }
+.gif {
+  width: 100%;
 .gif {
   width: 100%;
   height: auto;
@@ -136,3 +165,4 @@ SECTION RESULTATS
 .cache {
   display: none; /* La classe .cache masque un écran */
 }
+
