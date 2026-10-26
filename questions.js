@@ -120,3 +120,11 @@ const questions = [
     bonne_reponse: 3,
   },
 ];
+
+console.log(questions.length + " questions")
+
+
+questions.forEach((question, index) => {
+  console.log("Question " + (index + 1) + " : " + question.question)
+  console.log("Bonne réponse : " + question.reponses[question.bonne_reponse])
+})

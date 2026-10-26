@@ -9,7 +9,7 @@
 // Ces lignes récupèrent les éléments HTML par leur id.
 // Tu n'as pas besoin de les modifier.
 
-const btnCommencer = document.getElementById('btn-commencer')
+const btnCommencer = document.querySelector(".commencer")
 //... Crée autant de constantes que d'éléments HTML à récupérer
 
 
@@ -17,7 +17,7 @@ const btnCommencer = document.getElementById('btn-commencer')
 // Ces variables stockent les données en cours de partie.
 // Tu n'as pas besoin de les modifier.
 
-let questions = []   // tableau des questions chargées depuis le JSON
+// let questions = []   // tableau des questions chargées depuis le JSON
 let indexCourant = 0    // numéro de la question en cours (commence à 0)
 let score = 0    // nombre de bonnes réponses
 
@@ -26,14 +26,14 @@ let score = 0    // nombre de bonnes réponses
 // Cette fonction est déjà écrite.
 // Elle charge le fichier questions.json et remplit l'écran d'accueil.
 
-fetch('questions.json')
+/* fetch('questions.json')
   .then(response => response.json())
   .then(data => {
     questions = data
     titreQuiz.textContent = 'AdaQuiz'
     descriptionQuiz.textContent = 'Ton quiz personnalisé'
     nbQuestions.textContent = questions.length + ' questions'
-  })
+  }) */
 
 
 // ── Navigation entre les écrans ──────────────
