@@ -21,12 +21,11 @@ body {
   font-size: 16px;
   line-height: 1.6rem;
   height: 100%;
-  /*  display: flex;
-  /*  display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; */
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -40,14 +39,14 @@ Style des cartes de base
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-around;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  justify-content: space-evenly;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 12px;
   box-shadow: 2px 8px 3px black;
-  height: 90vh;
+  min-height: 95vh;
 }
 /* ====================================================
 Section Ecran d'accueil 
@@ -64,12 +63,13 @@ Section Ecran d'accueil
 
 .image-accueil {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
 .regles {
-  padding: 1rem;
+  margin: 0;
+  padding-top: 1rem;
 }
 
 .regles h3 {
@@ -119,6 +119,24 @@ FEEDBACK ET BOUTON SUIVANT
 }
 
 /* ==========================================================
+SECTION Questions
+==============================================================*/
+
+#ecran-question img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titre-question {
+  padding-bottom: 0.5rem;
+}
+
+.question {
+  padding-bottom: 0.5rem;
+}
+
+/* ==========================================================
 SECTION RESULTATS 
 ==============================================================*/
 
@@ -154,6 +172,10 @@ SECTION RESULTATS
   width: 100%;
   height: auto;
 }
+
+/* ==========================================================
+Regle pour écrans-caché
+==============================================================*/
 
 .cache {
   display: none; /* La classe .cache masque un écran */
