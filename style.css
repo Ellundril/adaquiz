@@ -21,8 +21,7 @@ body {
   font-size: 16px;
   line-height: 1.6rem;
   height: 100%;
-}
-/*  display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -45,8 +44,8 @@ Style des cartes de base
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 12px;
-  box-shadow: 2px 8px 3px black;
-  height: 90vh;
+  box-shadow: 2px 8px 3px  black;
+  min-height: 95vh;
 }
 /* ====================================================
 Section Ecran d'accueil 
