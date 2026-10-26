@@ -47,6 +47,7 @@ Style des cartes de base
   border-radius: 12px;
   box-shadow: 2px 8px 3px black;
   min-height: 95vh;
+  min-width: stretch;
 }
 /* ====================================================
 Section Ecran d'accueil 
@@ -171,6 +172,7 @@ SECTION RESULTATS
 .gif {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 /* ==========================================================
