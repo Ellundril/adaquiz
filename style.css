@@ -45,7 +45,7 @@ Style des cartes de base
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 12px;
-  box-shadow: 2px 8px 3px  black;
+  box-shadow: 2px 8px 3px black;
   min-height: 95vh;
 }
 /* ====================================================
@@ -105,6 +105,20 @@ input {
   border-radius: 10px;
 }
 /* ==========================================================
+FEEDBACK ET BOUTON SUIVANT
+==============================================================*/
+.fleche {
+  display: inline-block;
+  border: solid white;
+  border-width: 4px 4px 0 0;
+  border-radius: 0 3px 0 0;
+  height: 12px;
+  width: 12px;
+  margin-left: 15px;
+  transform: rotate(45deg);
+}
+
+/* ==========================================================
 SECTION Questions
 ==============================================================*/
 
@@ -144,13 +158,16 @@ SECTION RESULTATS
   box-shadow: 3px 3px 2px black;
   margin: 0.5rem 0;
 }
+
 .phrase-finale {
   margin: 0;
   font-size: 1.5rem;
 }
+
 .mention {
   font-size: 2rem;
 }
+
 .gif {
   width: 100%;
   height: auto;
