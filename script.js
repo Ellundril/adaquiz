@@ -91,7 +91,6 @@ btnCommencer.addEventListener("click", () => {
 
 const afficherQuestion = () => {
   const q = questions[indexCourant]
-  let compteur = q.id
   titreQuestion.textContent = `Question ${q.id} /10`
   textQuestion.textContent = q.question
   btnSuivant.classList.add("cache")
@@ -102,12 +101,13 @@ const afficherQuestion = () => {
     btn.classList.add("reponse")
     btn.addEventListener("click", () => {
       verifierReponse(index)
+      const stop = listeReponses.querySelectorAll(".reponse")
+      stop.forEach((boutton) => {
+      boutton.disabled = true
+      })
     })
     listeReponses.appendChild(btn)
-    })
-
-
-
+  })
   // Écris ton code ici
 }
 
@@ -126,7 +126,7 @@ const afficherQuestion = () => {
 
 const verifierReponse = (indexChoisi) => {
   const q = questions[indexCourant]
-  bonneReponse = q.bonne_reponse
+  const bonneReponse = q.bonne_reponse
   if (indexChoisi === bonneReponse) {
     feedBack.textContent = "Bonne réponse ! ✅"
   } else {
