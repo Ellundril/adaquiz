@@ -214,18 +214,29 @@ ECRAN 768 px
 ======================================================*/
 
 @media screen and (min-width: 768px) {
+  #ecran-question {
+    align-items: unset;
+  }
   .liste-reponses {
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-evenly;
+    gap: 0; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin: 0 1.5rem;
   }
 
   .feedback-suivant {
     display: grid;
-    grid-template-columns: 100% 154px;
+    grid-template-columns: 1fr 154px;
     align-items: center;
+    margin: 0 1rem 0 0;
   }
 
   .gif {
     max-width: 300px;
+  }
+  .image-question {
+    max-width: 500px;
   }
 }
