@@ -91,24 +91,57 @@ Section Ecran d'accueil
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.btn {
+  all: unset;
+  background-image: linear-gradient(45deg, #2563eb 75%, rgb(175, 185, 241));
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  min-width: 120px;
+  box-shadow: 3px 3px 2px black;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.btn:focus-visible {
+  outline: 3px solid white;
+}
 /* ==========================================================
 CHOIX MULTIPLES
 ============================================================= */
-.choix-reponse {
+.liste-reponses {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0.5rem;
+  margin: 0 0.5rem;
 }
 input {
   display: none;
 }
 
 .reponse {
-  font-size: 1.5rem;
-  padding: 1rem 1.2rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
   background-image: linear-gradient(45deg, #341343 70%, #7c6480);
   border-radius: 10px;
+  border-color: #341343;
+  color: #f8fafc;
+  cursor: pointer;
+}
+.reponse:focus-visible {
+  outline: 3px solid white;
+}
+
+.bonne {
+  background-image: none;
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.mauvaise {
+  background-color: rgb(175, 17, 17);
+  background-image: none;
+  border-color: rgb(175, 17, 17);
 }
 /* ==========================================================
 FEEDBACK ET BOUTON SUIVANT
@@ -136,10 +169,13 @@ SECTION Questions
 
 .titre-question {
   padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .question {
   padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin: 1rem auto;
 }
 
 /* ==========================================================
@@ -153,16 +189,6 @@ SECTION RESULTATS
   font-size: 2rem;
   margin: 1rem auto;
   color: #062d54;
-}
-
-.btn {
-  all: unset;
-  background-image: linear-gradient(45deg, #2563eb 75%, rgb(175, 185, 241));
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  min-width: 150px;
-  box-shadow: 3px 3px 2px black;
-  margin: 1rem 0;
 }
 
 .phrase-finale {
@@ -186,4 +212,35 @@ Regle pour écrans-caché
 
 .cache {
   display: none; /* La classe .cache masque un écran */
+}
+
+/* ====================================================
+ECRAN 768 px 
+=======================================================*/
+@media screen and (min-width: 768px) {
+  #ecran-question {
+    align-items: unset;
+  }
+  .liste-reponses {
+    /* display: flex;
+    justify-content: space-evenly;
+    gap: 0; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin: 0 1.5rem;
+  }
+
+  .feedback-suivant {
+    display: grid;
+    grid-template-columns: 1fr 154px;
+    align-items: center;
+    margin: 0 1rem 0 0;
+  }
+
+  .gif {
+    max-width: 300px;
+  }
+  .image-question {
+    max-width: 500px;
+  }
 }
