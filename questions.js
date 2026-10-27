@@ -11,6 +11,7 @@ const questions = [
     ],
     bonne_reponse: 3,
     image: "images/athletisme.jpg",
+    altImage: "athlètes féminines qui courent sur une piste d'athlétisme",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const questions = [
     ],
     bonne_reponse: 0,
     image: "images/vtt.jpg",
+    altImage: "Vttiste tricolore qui saute un obstacle",
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ const questions = [
     ],
     bonne_reponse: 3,
     image: "images/escrime.jpg",
+    altImage: "Deux escrimeuses qui s'affrontent au sabre",
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ const questions = [
     ],
     bonne_reponse: 1,
     image: "images/natation.avif",
+    altImage: "piscine olympique avec les lignes d'eau",
   },
   {
     id: 5,
@@ -63,6 +67,7 @@ const questions = [
     ],
     bonne_reponse: 1,
     image: "images/judo.jpg",
+    altImage: "Deux combattants de judo s'affrontent",
   },
   {
     id: 6,
@@ -76,6 +81,7 @@ const questions = [
     ],
     bonne_reponse: 2,
     image: "images/boxe.jpg",
+    altImage: "Deux boxeuses s'affrontent",
   },
   {
     id: 7,
@@ -89,6 +95,8 @@ const questions = [
     ],
     bonne_reponse: 1,
     image: "images/triathlon.jpg",
+    altImage:
+      "Des triathlètes plongent dans l'eau pour commencer l'épreuve de natation",
   },
   {
     id: 8,
@@ -102,6 +110,7 @@ const questions = [
     ],
     bonne_reponse: 3,
     image: "images/canoe.jpg",
+    altImage: "un kayakiste français dans les rapides",
   },
   {
     id: 9,
@@ -115,6 +124,7 @@ const questions = [
     ],
     bonne_reponse: 1,
     image: "images/volley.avif",
+    altImage: "Un joueur de volley smash face à un block de l'équipe adverse",
   },
   {
     id: 10,
@@ -128,5 +138,6 @@ const questions = [
     ],
     bonne_reponse: 3,
     image: "images/basket.jpg",
+    altImage: "Les joueurs de l'équipe de France de basket",
   },
 ];
