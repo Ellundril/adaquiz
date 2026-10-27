@@ -82,6 +82,24 @@ const afficherQuestion = () => {
 
 const verifierReponse = (index, btn) => {
   // Écris ton code ici
+  console.log(index, btn);
+  const q = questions[indexCourant];
+  const boutons = document.querySelectorAll(".reponse");
+  boutons.forEach((bouton) => {
+    bouton.disabled = true;
+  });
+
+  if (index === q.bonne_reponse) {
+    score++;
+    btn.classList.add("bonne");
+    feedback.textContent = "Bonne réponse ! ✅";
+  } else {
+    feedback.textContent = "Mauvaise réponse ! ❌";
+    btn.classList.add("mauvaise");
+  }
+  feedback.classList.remove("cache");
+  btnSuivant.classList.remove("cache");
+  indexCourant++;
 };
 
 // ── TODO : afficherResultats ─────────────────
