@@ -10,6 +10,7 @@ const questions = [
       "Marie-José Pérec",
     ],
     bonne_reponse: 3,
+    image: "images/athletisme.jpg",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const questions = [
       "Jeannie Longo",
     ],
     bonne_reponse: 0,
+    image: "images/vtt.jpg",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const questions = [
       "Manon Apithy-Brunet",
     ],
     bonne_reponse: 3,
+    image: "images/escrime.jpg",
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ const questions = [
       "Florent Manaudou",
     ],
     bonne_reponse: 1,
+    image: "images/natation.avif",
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ const questions = [
       "Teddy Tamgho",
     ],
     bonne_reponse: 1,
+    image: "images/judo.jpg",
   },
   {
     id: 6,
@@ -70,6 +75,7 @@ const questions = [
       "Sarah Ourahmoune",
     ],
     bonne_reponse: 2,
+    image: "images/boxe.jpg",
   },
   {
     id: 7,
@@ -82,6 +88,7 @@ const questions = [
       "Emmie Charayron",
     ],
     bonne_reponse: 1,
+    image: "images/triathlon.jpg",
   },
   {
     id: 8,
@@ -94,6 +101,7 @@ const questions = [
       "Nicolas Gestin",
     ],
     bonne_reponse: 3,
+    image: "images/canoe.jpg",
   },
   {
     id: 9,
@@ -106,6 +114,7 @@ const questions = [
       "Earvin Ngapeth",
     ],
     bonne_reponse: 1,
+    image: "images/volley.avif",
   },
   {
     id: 10,
@@ -118,5 +127,6 @@ const questions = [
       "meilleur débutant",
     ],
     bonne_reponse: 3,
+    image: "images/basket.jpg",
   },
 ];
