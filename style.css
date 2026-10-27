@@ -94,7 +94,7 @@ Section Ecran d'accueil
 /* ==========================================================
 CHOIX MULTIPLES
 ============================================================= */
-.choix-reponse {
+.liste-reponses {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;

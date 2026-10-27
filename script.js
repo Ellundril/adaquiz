@@ -9,7 +9,25 @@
 // Ces lignes récupèrent les éléments HTML par leur id.
 // Tu n'as pas besoin de les modifier.
 
+// Boutons
 const btnCommencer = document.querySelector(".commencer")
+const btnSuivant = document.querySelector(".suivant")
+const btnRejouer = document.querySelector(".rejouer")
+
+
+// Ecran d'accueil
+const ecranAccueil = document.querySelector("#ecran-accueil")
+
+// Ecran Questions
+const ecranQuestion = document.querySelector("#ecran-question")
+const titreQuestion = document.querySelector(".titre-question")
+const textQuestion = document.querySelector(".question")
+const imageQuestion = document.querySelector(".image-question")
+const listeReponses = document.querySelector(".liste-reponses")
+const feedBack = document.querySelector(".feedback-text")
+
+// Ecran Resultat
+const ecranResultats = document.querySelector("#ecran-resultats")
 //... Crée autant de constantes que d'éléments HTML à récupérer
 
 
@@ -47,6 +65,11 @@ const afficher = (ecran) => {
   ecran.classList.remove('cache')
 }
 
+btnCommencer.addEventListener("click", () => {
+  afficher(ecranQuestion)
+  afficherQuestion()
+})
+
 
 // ════════════════════════════════════════════
 //   TODO — Fonctions à compléter
@@ -67,6 +90,24 @@ const afficher = (ecran) => {
 //      Chaque bouton doit appeler verifierReponse() au clic
 
 const afficherQuestion = () => {
+  const q = questions[indexCourant]
+  let compteur = q.id
+  titreQuestion.textContent = `Question ${q.id} /10`
+  textQuestion.textContent = q.question
+  btnSuivant.classList.add("cache")
+  listeReponses.innerHTML = ""
+  q.reponses.forEach((reponse, index) => {
+    const btn = document.createElement("button")
+    btn.textContent = reponse
+    btn.classList.add("reponse")
+    btn.addEventListener("click", () => {
+      verifierReponse(index)
+    })
+    listeReponses.appendChild(btn)
+    })
+
+
+
   // Écris ton code ici
 }
 
@@ -84,6 +125,14 @@ const afficherQuestion = () => {
 //   6. Afficher le bouton "Question suivante"
 
 const verifierReponse = (indexChoisi) => {
+  const q = questions[indexCourant]
+  bonneReponse = q.bonne_reponse
+  if (indexChoisi === bonneReponse) {
+    feedBack.textContent = "Bonne réponse ! ✅"
+  } else {
+    feedBack.textContent = "Mauvaise réponse !"
+  }
+  btnSuivant.classList.remove("cache")
   // Écris ton code ici
 }
 
