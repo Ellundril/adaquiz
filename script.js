@@ -142,12 +142,15 @@ const afficherResultats = () => {
   if (score < 5) {
     mention.textContent = "Pas terrible 🫤";
     phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
+    gif.src = "gifs/foot_fail.webp";
   } else if (score < 7) {
     mention.textContent = "Ca passe 😅";
     phraseFinale.textContent = "Ouf c'est au moins la moyenne";
+    gif.src = "gifs/homer_gym.webp";
   } else if (score < 10) {
     mention.textContent = "Bien joué 👍";
     phraseFinale.textContent = "De bonnes connaissances !";
+    gif.src = "gifs/dunk.gif";
   } else {
     mention.textContent = "Excellent 🎉";
     phraseFinale.textContent = "Tu es incroyable !";
