@@ -65,26 +65,23 @@ const afficher = (ecran) => {
 //      Chaque bouton doit appeler verifierReponse() au clic
 
 const afficherQuestion = () => {
-  const q = questions[indexCourant]
-  titreQuestion.textContent = `Question ${q.id} /10`
-  textQuestion.textContent = q.question
-  btnSuivant.classList.add("cache")
-  listeReponses.innerHTML = ""
+  const q = questions[indexCourant];
+  numQuestion.textContent = `Question ${q.id} /10`;
+  textQuestion.textContent = q.question;
+  imgQuestion.src = q.image;
+  imgQuestion.alt = q.altImage;
+  btnSuivant.classList.add("cache");
+  listeReponses.innerHTML = "";
   q.reponses.forEach((reponse, index) => {
-    const btn = document.createElement("button")
-    btn.textContent = reponse
-    btn.classList.add("reponse")
+    const btn = document.createElement("button");
+    btn.textContent = reponse;
+    btn.classList.add("reponse");
     btn.addEventListener("click", () => {
-      verifierReponse(index, btn)
-      const stop = listeReponses.querySelectorAll(".reponse")
-      stop.forEach((boutton) => {
-      boutton.disabled = true
-      })
-    })
-    listeReponses.appendChild(btn)
-  })
-}
-
+      verifierReponse(index, btn);
+    });
+    listeReponses.appendChild(btn);
+  });
+};
 
 // ── TODO : verifierReponse ───────────────────
 // Cette fonction est appelée quand une apprenante clique sur une réponse.
@@ -98,6 +95,26 @@ const afficherQuestion = () => {
 //   5. Si la réponse est bonne, incrémenter le score
 //   6. Afficher le bouton "Question suivante"
 
+const verifierReponse = (index, btn) => {
+  // Écris ton code ici
+  const q = questions[indexCourant];
+  const boutons = document.querySelectorAll(".reponse");
+  boutons.forEach((bouton) => {
+    bouton.disabled = true;
+  });
+
+  if (index === q.bonne_reponse) {
+    score++;
+    btn.classList.add("bonne");
+    feedback.textContent = "Bonne réponse ! ✅";
+  } else {
+    feedback.textContent = "Mauvaise réponse ! ❌";
+    btn.classList.add("mauvaise");
+  }
+  feedback.classList.remove("cache");
+  btnSuivant.classList.remove("cache");
+  indexCourant++;
+};
 
 // ── TODO : afficherResultats ─────────────────
 // Cette fonction est appelée quand toutes les questions ont été répondues.
@@ -108,7 +125,7 @@ const afficherQuestion = () => {
 //   3. Appeler afficher(ecranResultats) pour passer à l'écran résultats
 
 const afficherResultats = () => {
-  titreResultats.textContent = `Score : ${score}/10`;
+  affichageScore.textContent = `Score : ${score}/10`;
   if (score < 5) {
     mention.textContent = "Pas terrible 🫤";
     phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
@@ -123,8 +140,7 @@ const afficherResultats = () => {
     phraseFinale.textContent = "Tu es incroyable !";
   }
   // Écris ton code ici
-}
-
+};
 
 // ── TODO : écouteurs d'événements ───────────
 // Branche les boutons sur les bonnes fonctions.
@@ -135,22 +151,24 @@ const afficherResultats = () => {
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
 btnCommencer.addEventListener("click", () => {
-  afficher(ecranQuestion)
-  afficherQuestion()
-})
+  afficher(ecranQuestion);
+  afficherQuestion();
+});
 
 btnSuivant.addEventListener("click", () => {
-  indexCourant++
-  if (indexCourant < questions.length) {
-    afficherQuestion()
+  if (indexCourant < 10) {
+    afficherQuestion();
   } else {
-    afficher(ecranResultats)
-    afficherResultats()
+    afficher(ecranResultats);
+    afficherResultats();
   }
-})
+});
 
 btnRejouer.addEventListener("click", () => {
-  indexCourant = 0
-  score = 0
-  afficher(ecranAccueil)
-})
+  indexCourant = 0;
+  score = 0;
+  afficher(ecranAccueil);
+});
+
+imgQuestion.src = q.image;
+imgQuestion.alt = q.altImage;
