@@ -66,8 +66,10 @@ const afficher = (ecran) => {
 
 const afficherQuestion = () => {
   const q = questions[indexCourant];
-  titreQuestion.textContent = `Question ${q.id} /10`;
+  numQuestion.textContent = `Question ${q.id} /10`;
   textQuestion.textContent = q.question;
+  imgQuestion.src = q.image;
+  imgQuestion.alt = q.altImage;
   btnSuivant.classList.add("cache");
   listeReponses.innerHTML = "";
   q.reponses.forEach((reponse, index) => {
@@ -76,10 +78,6 @@ const afficherQuestion = () => {
     btn.classList.add("reponse");
     btn.addEventListener("click", () => {
       verifierReponse(index, btn);
-      const stop = listeReponses.querySelectorAll(".reponse");
-      stop.forEach((boutton) => {
-        boutton.disabled = true;
-      });
     });
     listeReponses.appendChild(btn);
   });
@@ -127,7 +125,7 @@ const verifierReponse = (index, btn) => {
 //   3. Appeler afficher(ecranResultats) pour passer à l'écran résultats
 
 const afficherResultats = () => {
-  titreResultats.textContent = `Score : ${score}/10`;
+  affichageScore.textContent = `Score : ${score}/10`;
   if (score < 5) {
     mention.textContent = "Pas terrible 🫤";
     phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
@@ -158,8 +156,7 @@ btnCommencer.addEventListener("click", () => {
 });
 
 btnSuivant.addEventListener("click", () => {
-  indexCourant++;
-  if (indexCourant < questions.length) {
+  if (indexCourant < 10) {
     afficherQuestion();
   } else {
     afficher(ecranResultats);
@@ -173,5 +170,5 @@ btnRejouer.addEventListener("click", () => {
   afficher(ecranAccueil);
 });
 
-// imgQuestion.src = q.image
-// imgQuestion.alt = q.altImage
+imgQuestion.src = q.image;
+imgQuestion.alt = q.altImage;
