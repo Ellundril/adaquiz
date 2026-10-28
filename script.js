@@ -4,53 +4,52 @@
 //   Les fonctions marquées TODO sont à compléter.
 // ════════════════════════════════════════════
 
-
 // ── Sélection des éléments DOM ──────────────
 // Ces lignes récupèrent les éléments HTML par leur id.
 // Tu n'as pas besoin de les modifier.
 
+// BOUTONS
+const btnCommencer = document.querySelector(".commencer");
+const btnSuivant = document.querySelector(".suivant");
+const btnRejouer = document.querySelector(".rejouer");
+// QUESTIONS - REPONSES
+const numQuestion = document.querySelector(".titre-question");
+const textQuestion = document.querySelector(".question");
+const imgQuestion = document.querySelector(".image-question");
+const listeReponses = document.querySelector(".liste-reponses");
+const feedback = document.querySelector(".feedback-text");
+// ECRANS
+const ecranQuestion = document.querySelector("#ecran-question");
+const ecranAccueil = document.querySelector("#ecran-accueil");
+const ecranResultats = document.querySelector("#ecran-resultats");
+// FIN DU QUIZ
+const affichageScore = document.querySelector(".note");
+const mention = document.querySelector(".mention");
+const phraseFinale = document.querySelector(".phrase-finale");
+const gif = document.querySelector(".gif");
 //... Crée autant de constantes que d'éléments HTML à récupérer
-
 
 // ── État du quiz ─────────────────────────────
 // Ces variables stockent les données en cours de partie.
 // Tu n'as pas besoin de les modifier.
 
-// let questions = []   // tableau des questions chargées depuis le JSON
-let indexCourant = 0    // numéro de la question en cours (commence à 0)
-let score = 0    // nombre de bonnes réponses
-
-
-// ── Chargement du JSON ───────────────────────
-// Cette fonction est déjà écrite.
-// Elle charge le fichier questions.json et remplit l'écran d'accueil.
-
-/* fetch('questions.json')
-  .then(response => response.json())
-  .then(data => {
-    questions = data
-    titreQuiz.textContent = 'AdaQuiz'
-    descriptionQuiz.textContent = 'Ton quiz personnalisé'
-    nbQuestions.textContent = questions.length + ' questions'
-  }) */
-
+let indexCourant = 0; // numéro de la question en cours (commence à 0)
+let score = 0; // nombre de bonnes réponses
 
 // ── Navigation entre les écrans ──────────────
 // Cette fonction est déjà écrite.
 // Elle cache tous les écrans puis affiche celui qu'on lui donne.
 
 const afficher = (ecran) => {
-  ecranAccueil.classList.add('cache')
-  ecranQuestion.classList.add('cache')
-  ecranResultats.classList.add('cache')
-  ecran.classList.remove('cache')
-}
-
+  ecranAccueil.classList.add("cache");
+  ecranQuestion.classList.add("cache");
+  ecranResultats.classList.add("cache");
+  ecran.classList.remove("cache");
+};
 
 // ════════════════════════════════════════════
 //   TODO — Fonctions à compléter
 // ════════════════════════════════════════════
-
 
 // ── TODO : afficherQuestion ──────────────────
 // Cette fonction doit afficher la question en cours.
