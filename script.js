@@ -82,7 +82,6 @@ const afficherQuestion = () => {
 
 const verifierReponse = (index, btn) => {
   // Écris ton code ici
-  console.log(index, btn);
   const q = questions[indexCourant];
   const boutons = document.querySelectorAll(".reponse");
   boutons.forEach((bouton) => {
@@ -123,3 +122,6 @@ const afficherResultats = () => {
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
 // Écris ton code ici
+
+// imgQuestion.src = q.image
+// imgQuestion.alt = q.altImage
