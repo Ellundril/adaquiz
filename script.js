@@ -169,6 +169,3 @@ btnRejouer.addEventListener("click", () => {
   score = 0;
   afficher(ecranAccueil);
 });
-
-imgQuestion.src = q.image;
-imgQuestion.alt = q.altImage;
