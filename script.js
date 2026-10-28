@@ -63,10 +63,22 @@ const afficher = (ecran) => {
 //   5. Cacher le bouton "Question suivante"
 //   6. Vider #liste-reponses, puis créer un bouton pour chaque réponse
 //      Chaque bouton doit appeler verifierReponse() au clic
+//algo de fisher yates
+const melange = (tab) => {
+  let j;
+  let temp;
+  for (let i = tab.length - 1; i >= 1; i--) {
+    j = Math.floor(Math.random() * i);
+    temp = tab[j];
+    tab[j] = tab[i];
+    tab[i] = temp;
+  }
+  return tab;
+};
 
 const afficherQuestion = () => {
   const q = questions[indexCourant];
-  numQuestion.textContent = `Question ${q.id} /10`;
+  numQuestion.textContent = `Question ${indexCourant + 1} /10`;
   textQuestion.textContent = q.question;
   imgQuestion.src = q.image;
   imgQuestion.alt = q.altImage;
@@ -152,6 +164,7 @@ const afficherResultats = () => {
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
 btnCommencer.addEventListener("click", () => {
+  melange(questions);
   afficher(ecranQuestion);
   afficherQuestion();
 });
