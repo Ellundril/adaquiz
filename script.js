@@ -71,6 +71,7 @@ const afficherQuestion = () => {
   imgQuestion.src = q.image;
   imgQuestion.alt = q.altImage;
   btnSuivant.classList.add("cache");
+  feedback.classList.add("cache");
   listeReponses.innerHTML = "";
   q.reponses.forEach((reponse, index) => {
     const btn = document.createElement("button");
