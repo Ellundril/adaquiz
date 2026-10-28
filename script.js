@@ -65,7 +65,24 @@ const afficher = (ecran) => {
 //      Chaque bouton doit appeler verifierReponse() au clic
 
 const afficherQuestion = () => {
-  // Écris ton code ici
+  const q = questions[indexCourant];
+  titreQuestion.textContent = `Question ${q.id} /10`;
+  textQuestion.textContent = q.question;
+  btnSuivant.classList.add("cache");
+  listeReponses.innerHTML = "";
+  q.reponses.forEach((reponse, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = reponse;
+    btn.classList.add("reponse");
+    btn.addEventListener("click", () => {
+      verifierReponse(index, btn);
+      const stop = listeReponses.querySelectorAll(".reponse");
+      stop.forEach((boutton) => {
+        boutton.disabled = true;
+      });
+    });
+    listeReponses.appendChild(btn);
+  });
 };
 
 // ── TODO : verifierReponse ───────────────────
@@ -110,6 +127,20 @@ const verifierReponse = (index, btn) => {
 //   3. Appeler afficher(ecranResultats) pour passer à l'écran résultats
 
 const afficherResultats = () => {
+  titreResultats.textContent = `Score : ${score}/10`;
+  if (score < 5) {
+    mention.textContent = "Pas terrible 🫤";
+    phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
+  } else if (score < 7) {
+    mention.textContent = "Ca passe 😅";
+    phraseFinale.textContent = "Ouf c'est au moins la moyenne";
+  } else if (score < 10) {
+    mention.textContent = "Bien joué 👍";
+    phraseFinale.textContent = "De bonnes connaissances !";
+  } else {
+    mention.textContent = "Excellent 🎉";
+    phraseFinale.textContent = "Tu es incroyable !";
+  }
   // Écris ton code ici
 };
 
@@ -121,7 +152,26 @@ const afficherResultats = () => {
 //   - btn-suivant   → passer à la question suivante ou aux résultats
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
-// Écris ton code ici
+btnCommencer.addEventListener("click", () => {
+  afficher(ecranQuestion);
+  afficherQuestion();
+});
+
+btnSuivant.addEventListener("click", () => {
+  indexCourant++;
+  if (indexCourant < questions.length) {
+    afficherQuestion();
+  } else {
+    afficher(ecranResultats);
+    afficherResultats();
+  }
+});
+
+btnRejouer.addEventListener("click", () => {
+  indexCourant = 0;
+  score = 0;
+  afficher(ecranAccueil);
+});
 
 // imgQuestion.src = q.image
 // imgQuestion.alt = q.altImage
