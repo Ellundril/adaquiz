@@ -9,25 +9,6 @@
 // Ces lignes récupèrent les éléments HTML par leur id.
 // Tu n'as pas besoin de les modifier.
 
-// Boutons
-const btnCommencer = document.querySelector(".commencer")
-const btnSuivant = document.querySelector(".suivant")
-const btnRejouer = document.querySelector(".rejouer")
-
-
-// Ecran d'accueil
-const ecranAccueil = document.querySelector("#ecran-accueil")
-
-// Ecran Questions
-const ecranQuestion = document.querySelector("#ecran-question")
-const titreQuestion = document.querySelector(".titre-question")
-const textQuestion = document.querySelector(".question")
-const imageQuestion = document.querySelector(".image-question")
-const listeReponses = document.querySelector(".liste-reponses")
-const feedBack = document.querySelector(".feedback-text")
-
-// Ecran Resultat
-const ecranResultats = document.querySelector("#ecran-resultats")
 //... Crée autant de constantes que d'éléments HTML à récupérer
 
 
@@ -65,11 +46,6 @@ const afficher = (ecran) => {
   ecran.classList.remove('cache')
 }
 
-btnCommencer.addEventListener("click", () => {
-  afficher(ecranQuestion)
-  afficherQuestion()
-})
-
 
 // ════════════════════════════════════════════
 //   TODO — Fonctions à compléter
@@ -100,7 +76,7 @@ const afficherQuestion = () => {
     btn.textContent = reponse
     btn.classList.add("reponse")
     btn.addEventListener("click", () => {
-      verifierReponse(index)
+      verifierReponse(index, btn)
       const stop = listeReponses.querySelectorAll(".reponse")
       stop.forEach((boutton) => {
       boutton.disabled = true
@@ -108,7 +84,6 @@ const afficherQuestion = () => {
     })
     listeReponses.appendChild(btn)
   })
-  // Écris ton code ici
 }
 
 
@@ -124,18 +99,6 @@ const afficherQuestion = () => {
 //   5. Si la réponse est bonne, incrémenter le score
 //   6. Afficher le bouton "Question suivante"
 
-const verifierReponse = (indexChoisi) => {
-  const q = questions[indexCourant]
-  const bonneReponse = q.bonne_reponse
-  if (indexChoisi === bonneReponse) {
-    feedBack.textContent = "Bonne réponse ! ✅"
-  } else {
-    feedBack.textContent = "Mauvaise réponse !"
-  }
-  btnSuivant.classList.remove("cache")
-  // Écris ton code ici
-}
-
 
 // ── TODO : afficherResultats ─────────────────
 // Cette fonction est appelée quand toutes les questions ont été répondues.
@@ -146,6 +109,20 @@ const verifierReponse = (indexChoisi) => {
 //   3. Appeler afficher(ecranResultats) pour passer à l'écran résultats
 
 const afficherResultats = () => {
+  titreResultats.textContent = `Score : ${score}/10`;
+  if (score < 5) {
+    mention.textContent = "Pas terrible 🫤";
+    phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
+  } else if (score < 7) {
+    mention.textContent = "Ca passe 😅";
+    phraseFinale.textContent = "Ouf c'est au moins la moyenne";
+  } else if (score < 10) {
+    mention.textContent = "Bien joué 👍";
+    phraseFinale.textContent = "De bonnes connaissances !";
+  } else {
+    mention.textContent = "Excellent 🎉";
+    phraseFinale.textContent = "Tu es incroyable !";
+  }
   // Écris ton code ici
 }
 
@@ -158,4 +135,23 @@ const afficherResultats = () => {
 //   - btn-suivant   → passer à la question suivante ou aux résultats
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
-// Écris ton code ici
+btnCommencer.addEventListener("click", () => {
+  afficher(ecranQuestion)
+  afficherQuestion()
+})
+
+btnSuivant.addEventListener("click", () => {
+  indexCourant++
+  if (indexCourant < questions.length) {
+    afficherQuestion()
+  } else {
+    afficher(ecranResultats)
+    afficherResultats()
+  }
+})
+
+btnRejouer.addEventListener("click", () => {
+  indexCourant = 0
+  score = 0
+  afficher(ecranAccueil)
+})
