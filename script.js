@@ -78,6 +78,7 @@ const afficherQuestion = () => {
     btn.textContent = reponse;
     btn.classList.add("reponse");
     btn.addEventListener("click", () => {
+    btn.classList.add("selectionne");
       verifierReponse(index, btn);
     });
     listeReponses.appendChild(btn);
@@ -99,6 +100,7 @@ const afficherQuestion = () => {
 const verifierReponse = (index, btn) => {
   // Écris ton code ici
   const q = questions[indexCourant];
+  const bonneReponse = q.bonne_reponse
   const boutons = document.querySelectorAll(".reponse");
   boutons.forEach((bouton) => {
     bouton.disabled = true;
@@ -111,6 +113,7 @@ const verifierReponse = (index, btn) => {
   } else {
     feedback.textContent = "Mauvaise réponse ! ❌";
     btn.classList.add("mauvaise");
+    boutons[bonneReponse].classList.add("bonne")
   }
   feedback.classList.remove("cache");
   btnSuivant.classList.remove("cache");
