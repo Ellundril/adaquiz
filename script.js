@@ -94,7 +94,7 @@ const indice = (bouton, index) => {
   }
 };
 const compteurMouvement = (bouton, index) => {
-  if (nbMouvement <= 120) {
+  if (nbMouvement <= 1000) {
     nbMouvement++;
   } else {
     indice(bouton, index);
