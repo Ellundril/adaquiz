@@ -229,3 +229,35 @@ btnRejouer.addEventListener("click", () => {
   score = 0;
   afficher(ecranAccueil);
 });
+
+//anti-triche
+
+window.addEventListener("blur", () => {
+  afficher(ecranAccueil);
+  alert("N'essaie pas de tricher, tu peux tout recommencer du début !");
+});
+
+//easter egg php
+window.addEventListener("keydown", (event) => {
+  phpOlivier(event);
+});
+
+let touches = "";
+const phpOlivier = (e) => {
+  const objectif = "php";
+  switch (e.code) {
+    case "KeyP":
+      touches += "p";
+      break;
+    case "KeyH":
+      touches += "h";
+      break;
+    default:
+      touches = "";
+      break;
+  }
+  if (touches === objectif) {
+    alert("Olivier sort de cet app !");
+    touches = "";
+  }
+};
