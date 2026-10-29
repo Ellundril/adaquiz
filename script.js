@@ -63,10 +63,22 @@ const afficher = (ecran) => {
 //   5. Cacher le bouton "Question suivante"
 //   6. Vider #liste-reponses, puis créer un bouton pour chaque réponse
 //      Chaque bouton doit appeler verifierReponse() au clic
+//algo de fisher yates
+const melange = (tab) => {
+  let j;
+  let temp;
+  for (let i = tab.length - 1; i >= 1; i--) {
+    j = Math.floor(Math.random() * i);
+    temp = tab[j];
+    tab[j] = tab[i];
+    tab[i] = temp;
+  }
+  return tab;
+};
 
 const afficherQuestion = () => {
   const q = questions[indexCourant];
-  numQuestion.textContent = `Question ${q.id} /10`;
+  numQuestion.textContent = `Question ${indexCourant + 1} /10`;
   textQuestion.textContent = q.question;
   imgQuestion.src = q.image;
   imgQuestion.alt = q.altImage;
@@ -133,12 +145,15 @@ const afficherResultats = () => {
   if (score < 5) {
     mention.textContent = "Pas terrible 🫤";
     phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
+    gif.src = "gifs/foot_fail.webp";
   } else if (score < 7) {
     mention.textContent = "Ca passe 😅";
     phraseFinale.textContent = "Ouf c'est au moins la moyenne";
+    gif.src = "gifs/homer_gym.webp";
   } else if (score < 10) {
     mention.textContent = "Bien joué 👍";
     phraseFinale.textContent = "De bonnes connaissances !";
+    gif.src = "gifs/dunk.gif";
   } else {
     mention.textContent = "Excellent 🎉";
     phraseFinale.textContent = "Tu es incroyable !";
@@ -155,6 +170,7 @@ const afficherResultats = () => {
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
 btnCommencer.addEventListener("click", () => {
+  melange(questions);
   afficher(ecranQuestion);
   afficherQuestion();
 });
