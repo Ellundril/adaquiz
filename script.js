@@ -28,6 +28,8 @@ const mention = document.querySelector(".mention");
 const phraseFinale = document.querySelector(".phrase-finale");
 const gif = document.querySelector(".gif");
 //... Crée autant de constantes que d'éléments HTML à récupérer
+const msgAffile = document.createElement("p");
+msgAffile.classList.add("cache");
 
 // ── État du quiz ─────────────────────────────
 // Ces variables stockent les données en cours de partie.
@@ -37,6 +39,8 @@ let indexCourant = 0; // numéro de la question en cours (commence à 0)
 let score = 0; // nombre de bonnes réponses
 let boutonChatouille = "null";
 let nbMouvement = 0;
+let affile = 0;
+
 // ── Navigation entre les écrans ──────────────
 // Cette fonction est déjà écrite.
 // Elle cache tous les écrans puis affiche celui qu'on lui donne.
@@ -145,9 +149,14 @@ const afficherQuestion = () => {
 //   4. Si la réponse choisie est mauvaise, la colorier en rouge ("incorrecte")
 //   5. Si la réponse est bonne, incrémenter le score
 //   6. Afficher le bouton "Question suivante"
+const afficherMsgAffile = (texte) => {
+  msgAffile.innerHTML = texte;
+  msgAffile.classList.remove("cache");
+  msgAffile.classList.add("msg-affile");
+  ecranQuestion.appendChild(msgAffile);
+};
 
 const verifierReponse = (index, btn) => {
-  // Écris ton code ici
   const q = questions[indexCourant];
   const bonneReponse = q.bonne_reponse;
   const boutons = document.querySelectorAll(".reponse");
@@ -157,12 +166,27 @@ const verifierReponse = (index, btn) => {
 
   if (index === q.bonne_reponse) {
     score++;
+    affile++;
     btn.classList.add("bonne");
     feedback.innerHTML = `Bonne réponse ! <span aria-hidden = "true" >✅</span>`;
   } else {
+    affile = 0;
+    msgAffile.classList.add("cache");
     feedback.innerHTML = `Mauvaise réponse ! <span aria-hidden = "true" >❌</span>`;
     btn.classList.add("mauvaise");
     boutons[bonneReponse].classList.add("bonne");
+  }
+
+  if (affile === 3) {
+    afficherMsgAffile(`Tu es on fire ! <span aria-hidden = "true"> 🔥</span>`);
+  } else if (affile === 6) {
+    afficherMsgAffile(
+      `Machine de guerre activée ! <span aria-hidden = "true"> 🤖</span>`,
+    );
+  } else if (affile === 9) {
+    afficherMsgAffile(
+      `Mais qui peut t'arrêter ?! <span aria-hidden = "true"> 🐐</span>`,
+    );
   }
   feedback.classList.remove("cache");
   btnSuivant.classList.remove("cache");
@@ -226,6 +250,8 @@ btnSuivant.addEventListener("click", () => {
 btnRejouer.addEventListener("click", () => {
   indexCourant = 0;
   score = 0;
+  affile = 0;
+  msgAffile.classList.add("cache");
   afficher(ecranAccueil);
 });
 
