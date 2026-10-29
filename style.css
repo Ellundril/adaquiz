@@ -56,7 +56,7 @@ Section Ecran d'accueil
 .titre-accueil {
   padding-top: 1rem;
   padding-bottom: 1.2rem;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -223,44 +223,39 @@ Regle pour écrans-caché
   display: none; /* La classe .cache masque un écran */
 }
 
-
 /* ====================================================
 ECRAN 768 px 
 =======================================================*/
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   #ecran-question {
     align-items: unset;
   }
 
   .image-accueil {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
-}
-
-  .liste-reponses {
-    /* display: flex;
-    justify-content: space-evenly;
-    gap: 0; */
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0.5rem;
-    margin: 0 1.5rem;
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
   }
 
+  .liste-reponses {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin: 0 15%;
+  }
 
   .feedback-suivant {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 3rem;
-  width: fit-content;
-  margin: 0 auto;
-}
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3rem;
+    width: fit-content;
+    margin: 0 auto;
+  }
 
   .feedback-suivant p {
-  font-size: 2rem;
-}
+    font-size: 2rem;
+  }
 
   .gif {
     max-width: 300px;
@@ -275,23 +270,51 @@ ECRAN 1024 px
 =======================================================*/
 
 @media screen and (min-width: 1024px) {
-
   .image-accueil {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
 
   .feedback-suivant {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  justify-content: center;
-  gap: 7rem;
-  width: fit-content;
-  margin: 0 auto;
-}
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+    width: fit-content;
+    margin: 0 auto;
+  }
   .feedback-suivant p {
-  font-size: 2rem;
+    font-size: 2rem;
+  }
 }
+
+/* ====================================================
+ECRAN 1024 px 
+=======================================================*/
+
+@media screen and (min-width: 1024px) {
+  .image-accueil {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .feedback-suivant {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .feedback-suivant p {
+    font-size: 2rem;
+  }
+
+  .liste-reponses {
+    margin: 0 25%;
+  }
 }
