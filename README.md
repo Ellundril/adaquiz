@@ -1,28 +1,23 @@
-# Les sportifs français
-Violaine et Julien
+# AdaQuiz Les sportifs français
 
+By Violaine et Julien
 
+Un quiz de 10 questions pour tester vos connaissances sur les sportives et sportifs français.
 
+## Langages utilisés
 
-<!-- # AdaQuiz — Projet de départ
+- HTML
+- CSS
+- JavaScript
 
-Bienvenue sur le projet de départ AdaQuiz ! Ce repo contient la structure de base du quiz. À vous de le compléter.
+## Contenu
 
-## Ce qui est déjà fait
-
-- `index.html` — la structure de base avec les 3 sections à compléter
-- `style.css` — uniquement la classe .cache (permettant de cacher des écrans dynamiquement grâce au JS)
-- `script.js` — le chargement du JSON et la navigation entre écrans
-
-## Ce que vous devez faire
-
-1. **Compléter `index.html` et `style.css`** pour créer le squelette du site, sans JavaScript
-2. **Compléter `questions.json`** avec au moins 5 questions (voir le brief pour le format)
-3. **Compléter les fonctions** marquées `TODO` dans `script.js` :
-   - `afficherQuestion()`
-   - `verifierReponse(indexChoisi)`
-   - `afficherResultats()`
-   - Les écouteurs d'événements en bas du fichier
+- un fichier [html](index.html)
+- un fichier [css](style.css)
+- deux fichiers js [script](script.js) et [questions](questions.js)
+- un dossier [images](images) pour les illustrations des questions
+- un dossier [wireframe](Wireframes) avec les wireframes réalisés sur penpot
+- un dossier [gif](gifs) pour les gifs apparaissant à la fin
 
 ## Lancer le projet en local
 
@@ -30,6 +25,9 @@ Bienvenue sur le projet de départ AdaQuiz ! Ce repo contient la structure de ba
 npx live-server
 ```
 
-Ouvrir ensuite `http://localhost:8080`.
+ou depuis vscode avec liveserver
 
-> ⚠️ Ne pas ouvrir `index.html` directement dans le navigateur — `fetch` ne fonctionne pas sans serveur local. -->
+## bonus réalisés
+
+- mélange des questions
+- une image pour chaque question avec un alt pour l'accessibilité
