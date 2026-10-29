@@ -88,7 +88,6 @@ const indice = (bouton, index) => {
 };
 const compteurMouvement = (bouton, index) => {
   if (nbMouvement <= 120) {
-    console.log(nbMouvement);
     nbMouvement++;
   } else {
     indice(bouton, index);
@@ -159,9 +158,9 @@ const verifierReponse = (index, btn) => {
   if (index === q.bonne_reponse) {
     score++;
     btn.classList.add("bonne");
-    feedback.textContent = "Bonne réponse ! ✅";
+    feedback.innerHTML = `Bonne réponse ! <span aria-hidden = "true" >✅</span>`;
   } else {
-    feedback.textContent = "Mauvaise réponse ! ❌";
+    feedback.innerHTML = `Mauvaise réponse ! <span aria-hidden = "true" >❌</span>`;
     btn.classList.add("mauvaise");
     boutons[bonneReponse].classList.add("bonne");
   }
@@ -181,19 +180,19 @@ const verifierReponse = (index, btn) => {
 const afficherResultats = () => {
   affichageScore.textContent = `Score : ${score}/10`;
   if (score < 5) {
-    mention.textContent = "Pas terrible 🫤";
+    mention.innerHTML = `Pas terrible <span aria-hidden = "true" >🫤</span>`;
     phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
     gif.src = "gifs/foot_fail.webp";
   } else if (score < 7) {
-    mention.textContent = "Ca passe 😅";
+    mention.innerHTML = `Ca passe <span aria-hidden = "true" >😅</span>`;
     phraseFinale.textContent = "Ouf c'est au moins la moyenne";
     gif.src = "gifs/homer_gym.webp";
   } else if (score < 10) {
-    mention.textContent = "Bien joué 👍";
+    mention.innerHTML = `Bien joué <span aria-hidden = "true" >👍</span>`;
     phraseFinale.textContent = "De bonnes connaissances !";
     gif.src = "gifs/dunk.gif";
   } else {
-    mention.textContent = "Excellent 🎉";
+    mention.innerHTML = `Excellent <span aria-hidden = "true" >🎉</span>`;
     phraseFinale.textContent = "Tu es incroyable !";
   }
   // Écris ton code ici
@@ -231,11 +230,11 @@ btnRejouer.addEventListener("click", () => {
 });
 
 //anti-triche
-
+/* 
 window.addEventListener("blur", () => {
   afficher(ecranAccueil);
   alert("N'essaie pas de tricher, tu peux tout recommencer du début !");
-});
+}); */
 
 //easter egg php
 window.addEventListener("keydown", (event) => {
