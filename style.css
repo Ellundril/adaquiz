@@ -187,6 +187,7 @@ SECTION Questions
   font-size: 1.2rem;
   padding: 0.5rem;
 }
+
 /* ==========================================================
 SECTION RESULTATS 
 ==============================================================*/
@@ -218,6 +219,15 @@ SECTION RESULTATS
 /* ==========================================================
 Regle pour écrans-caché
 ==============================================================*/
+.indiceJuste {
+  border: dotted 1px green;
+  animation: right 0.3s 4 ease-in-out;
+}
+
+.indiceFaux {
+  border: dotted 1px red;
+  animation: wrong 0.5s 2 ease-in-out;
+}
 
 .cache {
   display: none; /* La classe .cache masque un écran */
@@ -316,5 +326,27 @@ ECRAN 1024 px
 
   .liste-reponses {
     margin: 0 25%;
+  }
+}
+
+@keyframes wrong {
+  from {
+    transform: translateX(-5px);
+    transform: skewX(-25deg);
+    transform: (0.75, 0.75);
+  }
+  to {
+    transform: translateX(5px);
+    transform: skewX(25deg);
+    transform: scale(0.5, 0.5);
+  }
+}
+
+@keyframes right {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(-5px);
   }
 }

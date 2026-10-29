@@ -35,7 +35,8 @@ const gif = document.querySelector(".gif");
 
 let indexCourant = 0; // numéro de la question en cours (commence à 0)
 let score = 0; // nombre de bonnes réponses
-
+let boutonChatouille = "null";
+let nbMouvement = 0;
 // ── Navigation entre les écrans ──────────────
 // Cette fonction est déjà écrite.
 // Elle cache tous les écrans puis affiche celui qu'on lui donne.
@@ -76,6 +77,31 @@ const melange = (tab) => {
   return tab;
 };
 
+//Fonction pour l'easter egg chatouiller le bouton
+const indice = (bouton, index) => {
+  const q = questions[indexCourant];
+  if (index === q.bonne_reponse) {
+    bouton.classList.add("indiceJuste");
+  } else {
+    bouton.classList.add("indiceFaux");
+  }
+};
+const compteurMouvement = (bouton, index) => {
+  if (nbMouvement <= 120) {
+    console.log(nbMouvement);
+    nbMouvement++;
+  } else {
+    indice(bouton, index);
+  }
+};
+const chatouiller = (bouton, index) => {
+  if (bouton !== "null")
+    bouton.addEventListener("mousemove", () => {
+      compteurMouvement(bouton, index);
+    });
+};
+
+//Affichage des questions
 const afficherQuestion = () => {
   const q = questions[indexCourant];
   numQuestion.textContent = `Question ${indexCourant + 1} /10`;
@@ -89,8 +115,20 @@ const afficherQuestion = () => {
     const btn = document.createElement("button");
     btn.textContent = reponse;
     btn.classList.add("reponse");
+
+    btn.addEventListener("mouseover", () => {
+      boutonChatouille = btn;
+      nbMouvement = 0;
+      chatouiller(boutonChatouille, index);
+    });
+
+    btn.addEventListener("mouseout", () => {
+      boutonChatouille = "null";
+      nbMouvement = 0;
+    });
+
     btn.addEventListener("click", () => {
-    btn.classList.add("selectionne");
+      btn.classList.add("selectionne");
       verifierReponse(index, btn);
     });
     listeReponses.appendChild(btn);
@@ -112,7 +150,7 @@ const afficherQuestion = () => {
 const verifierReponse = (index, btn) => {
   // Écris ton code ici
   const q = questions[indexCourant];
-  const bonneReponse = q.bonne_reponse
+  const bonneReponse = q.bonne_reponse;
   const boutons = document.querySelectorAll(".reponse");
   boutons.forEach((bouton) => {
     bouton.disabled = true;
@@ -125,7 +163,7 @@ const verifierReponse = (index, btn) => {
   } else {
     feedback.textContent = "Mauvaise réponse ! ❌";
     btn.classList.add("mauvaise");
-    boutons[bonneReponse].classList.add("bonne")
+    boutons[bonneReponse].classList.add("bonne");
   }
   feedback.classList.remove("cache");
   btnSuivant.classList.remove("cache");
@@ -170,6 +208,8 @@ const afficherResultats = () => {
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
 btnCommencer.addEventListener("click", () => {
+  indexCourant = 0;
+  score = 0;
   melange(questions);
   afficher(ecranQuestion);
   afficherQuestion();
