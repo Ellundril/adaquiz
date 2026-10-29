@@ -28,8 +28,8 @@ const mention = document.querySelector(".mention");
 const phraseFinale = document.querySelector(".phrase-finale");
 const gif = document.querySelector(".gif");
 //... Crée autant de constantes que d'éléments HTML à récupérer
-const msgAffile = document.createElement("p")
-msgAffile.classList.add("cache")
+const msgAffile = document.createElement("p");
+msgAffile.classList.add("cache");
 
 // ── État du quiz ─────────────────────────────
 // Ces variables stockent les données en cours de partie.
@@ -37,6 +37,8 @@ msgAffile.classList.add("cache")
 
 let indexCourant = 0; // numéro de la question en cours (commence à 0)
 let score = 0; // nombre de bonnes réponses
+let boutonChatouille = "null";
+let nbMouvement = 0;
 let affile = 0;
 
 // ── Navigation entre les écrans ──────────────
@@ -79,6 +81,30 @@ const melange = (tab) => {
   return tab;
 };
 
+//Fonction pour l'easter egg chatouiller le bouton
+const indice = (bouton, index) => {
+  const q = questions[indexCourant];
+  if (index === q.bonne_reponse) {
+    bouton.classList.add("indiceJuste");
+  } else {
+    bouton.classList.add("indiceFaux");
+  }
+};
+const compteurMouvement = (bouton, index) => {
+  if (nbMouvement <= 120) {
+    nbMouvement++;
+  } else {
+    indice(bouton, index);
+  }
+};
+const chatouiller = (bouton, index) => {
+  if (bouton !== "null")
+    bouton.addEventListener("mousemove", () => {
+      compteurMouvement(bouton, index);
+    });
+};
+
+//Affichage des questions
 const afficherQuestion = () => {
   const q = questions[indexCourant];
   numQuestion.textContent = `Question ${indexCourant + 1} /10`;
@@ -92,8 +118,20 @@ const afficherQuestion = () => {
     const btn = document.createElement("button");
     btn.textContent = reponse;
     btn.classList.add("reponse");
+
+    btn.addEventListener("mouseover", () => {
+      boutonChatouille = btn;
+      nbMouvement = 0;
+      chatouiller(boutonChatouille, index);
+    });
+
+    btn.addEventListener("mouseout", () => {
+      boutonChatouille = "null";
+      nbMouvement = 0;
+    });
+
     btn.addEventListener("click", () => {
-    btn.classList.add("selectionne");
+      btn.classList.add("selectionne");
       verifierReponse(index, btn);
     });
     listeReponses.appendChild(btn);
@@ -112,16 +150,15 @@ const afficherQuestion = () => {
 //   5. Si la réponse est bonne, incrémenter le score
 //   6. Afficher le bouton "Question suivante"
 const afficherMsgAffile = (texte) => {
-  msgAffile.innerHTML = texte
-  msgAffile.classList.remove("cache")
-  msgAffile.classList.add("msg-affile")
-  ecranQuestion.appendChild(msgAffile)
-}
-
+  msgAffile.innerHTML = texte;
+  msgAffile.classList.remove("cache");
+  msgAffile.classList.add("msg-affile");
+  ecranQuestion.appendChild(msgAffile);
+};
 
 const verifierReponse = (index, btn) => {
   const q = questions[indexCourant];
-  const bonneReponse = q.bonne_reponse
+  const bonneReponse = q.bonne_reponse;
   const boutons = document.querySelectorAll(".reponse");
   boutons.forEach((bouton) => {
     bouton.disabled = true;
@@ -131,28 +168,30 @@ const verifierReponse = (index, btn) => {
     score++;
     affile++;
     btn.classList.add("bonne");
-    feedback.textContent = "Bonne réponse ! ✅";
+    feedback.innerHTML = `Bonne réponse ! <span aria-hidden = "true" >✅</span>`;
   } else {
-    affile = 0
-    msgAffile.classList.add("cache")
-    feedback.textContent = "Mauvaise réponse ! ❌";
+    affile = 0;
+    msgAffile.classList.add("cache");
+    feedback.innerHTML = `Mauvaise réponse ! <span aria-hidden = "true" >❌</span>`;
     btn.classList.add("mauvaise");
-    boutons[bonneReponse].classList.add("bonne")
+    boutons[bonneReponse].classList.add("bonne");
   }
 
   if (affile === 3) {
-    afficherMsgAffile(`Tu es on fire ! <span aria-hidden = "true"> 🔥</span>`)
+    afficherMsgAffile(`Tu es on fire ! <span aria-hidden = "true"> 🔥</span>`);
   } else if (affile === 6) {
-    afficherMsgAffile(`Machine de guerre activée ! <span aria-hidden = "true"> 🤖</span>`)
+    afficherMsgAffile(
+      `Machine de guerre activée ! <span aria-hidden = "true"> 🤖</span>`,
+    );
   } else if (affile === 9) {
-    afficherMsgAffile(`Mais qui peut t'arrêter ?! <span aria-hidden = "true"> 🐐</span>`)
+    afficherMsgAffile(
+      `Mais qui peut t'arrêter ?! <span aria-hidden = "true"> 🐐</span>`,
+    );
   }
-
   feedback.classList.remove("cache");
   btnSuivant.classList.remove("cache");
   indexCourant++;
 };
-
 
 // ── TODO : afficherResultats ─────────────────
 // Cette fonction est appelée quand toutes les questions ont été répondues.
@@ -165,19 +204,19 @@ const verifierReponse = (index, btn) => {
 const afficherResultats = () => {
   affichageScore.textContent = `Score : ${score}/10`;
   if (score < 5) {
-    mention.textContent = "Pas terrible 🫤";
+    mention.innerHTML = `Pas terrible <span aria-hidden = "true" >🫤</span>`;
     phraseFinale.textContent = "Un peu de révisions et ce sera mieux !";
     gif.src = "gifs/foot_fail.webp";
   } else if (score < 7) {
-    mention.textContent = "Ca passe 😅";
+    mention.innerHTML = `Ca passe <span aria-hidden = "true" >😅</span>`;
     phraseFinale.textContent = "Ouf c'est au moins la moyenne";
     gif.src = "gifs/homer_gym.webp";
   } else if (score < 10) {
-    mention.textContent = "Bien joué 👍";
+    mention.innerHTML = `Bien joué <span aria-hidden = "true" >👍</span>`;
     phraseFinale.textContent = "De bonnes connaissances !";
     gif.src = "gifs/dunk.gif";
   } else {
-    mention.textContent = "Excellent 🎉";
+    mention.innerHTML = `Excellent <span aria-hidden = "true" >🎉</span>`;
     phraseFinale.textContent = "Tu es incroyable !";
   }
   // Écris ton code ici
@@ -192,6 +231,8 @@ const afficherResultats = () => {
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 
 btnCommencer.addEventListener("click", () => {
+  indexCourant = 0;
+  score = 0;
   melange(questions);
   afficher(ecranQuestion);
   afficherQuestion();
@@ -209,7 +250,39 @@ btnSuivant.addEventListener("click", () => {
 btnRejouer.addEventListener("click", () => {
   indexCourant = 0;
   score = 0;
-  affile = 0
-  msgAffile.classList.add("cache")
+  affile = 0;
+  msgAffile.classList.add("cache");
   afficher(ecranAccueil);
 });
+
+//anti-triche
+/* 
+window.addEventListener("blur", () => {
+  afficher(ecranAccueil);
+  alert("N'essaie pas de tricher, tu peux tout recommencer du début !");
+}); */
+
+//easter egg php
+window.addEventListener("keydown", (event) => {
+  phpOlivier(event);
+});
+
+let touches = "";
+const phpOlivier = (e) => {
+  const objectif = "php";
+  switch (e.code) {
+    case "KeyP":
+      touches += "p";
+      break;
+    case "KeyH":
+      touches += "h";
+      break;
+    default:
+      touches = "";
+      break;
+  }
+  if (touches === objectif) {
+    alert("Olivier sort de cet app !");
+    touches = "";
+  }
+};
