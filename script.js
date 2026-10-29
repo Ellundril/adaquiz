@@ -30,7 +30,10 @@ const gif = document.querySelector(".gif");
 //... Crée autant de constantes que d'éléments HTML à récupérer
 const msgAffile = document.createElement("p");
 msgAffile.classList.add("cache");
-
+//minuteur
+const temps = document.querySelector(".timer");
+const minuteur = document.querySelector(".minuteur");
+const spinner = document.querySelector(".spinner");
 // ── État du quiz ─────────────────────────────
 // Ces variables stockent les données en cours de partie.
 // Tu n'as pas besoin de les modifier.
@@ -40,7 +43,7 @@ let score = 0; // nombre de bonnes réponses
 let boutonChatouille = "null";
 let nbMouvement = 0;
 let affile = 0;
-
+let timer;
 // ── Navigation entre les écrans ──────────────
 // Cette fonction est déjà écrite.
 // Elle cache tous les écrans puis affiche celui qu'on lui donne.
@@ -106,8 +109,25 @@ const chatouiller = (bouton, index) => {
 
 //Affichage des questions
 const afficherQuestion = () => {
+  secondes = 19;
+  temps.textContent = 20;
+  if (timer !== undefined) {
+    clearInterval(timer);
+  }
   const q = questions[indexCourant];
   numQuestion.textContent = `Question ${indexCourant + 1} /10`;
+  timer = setInterval(() => {
+    if (secondes >= 0) {
+      temps.textContent = secondes;
+      secondes--;
+    } else {
+      clearInterval(timer);
+      spinner.classList.remove("spinner");
+      secondes = 19;
+      indexCourant++;
+      questionSuivante();
+    }
+  }, 1000);
   textQuestion.textContent = q.question;
   imgQuestion.src = q.image;
   imgQuestion.alt = q.altImage;
@@ -238,14 +258,16 @@ btnCommencer.addEventListener("click", () => {
   afficherQuestion();
 });
 
-btnSuivant.addEventListener("click", () => {
+const questionSuivante = () => {
   if (indexCourant < 10) {
+    spinner.classList.add("spinner");
     afficherQuestion();
   } else {
     afficher(ecranResultats);
     afficherResultats();
   }
-});
+};
+btnSuivant.addEventListener("click", questionSuivante);
 
 btnRejouer.addEventListener("click", () => {
   indexCourant = 0;
@@ -286,3 +308,6 @@ const phpOlivier = (e) => {
     touches = "";
   }
 };
+
+//minuteur
+let secondes = 19;
