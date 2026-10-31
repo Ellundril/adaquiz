@@ -223,7 +223,7 @@ SECTION Questions
 
 .spinner {
   position: absolute;
-  background-image: linear-gradient(yellow, white);
+  background-image: linear-gradient(red, white);
   top: 50%;
   left: 50%;
   width: 60px;
