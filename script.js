@@ -218,6 +218,7 @@ const afficherResultats = () => {
   } else {
     mention.innerHTML = `Excellent <span aria-hidden = "true" >🎉</span>`;
     phraseFinale.textContent = "Tu es incroyable !";
+    gif.src = "gifs/smash_volley.gif";
   }
   // Écris ton code ici
 };
