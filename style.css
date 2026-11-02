@@ -257,6 +257,13 @@ SECTION Questions
   margin-top: 1rem;
 }
 
+.sortant {
+  animation: disparition 2s ease-in-out;
+}
+.entrant {
+  animation: apparition 2s ease-in-out;
+}
+
 .question {
   padding-bottom: 0.5rem;
   font-size: 1.2rem;
@@ -452,5 +459,23 @@ ECRAN 1024 px
   }
   to {
     transform: translateY(-5px);
+  }
+}
+
+@keyframes disparition {
+  from {
+    transform: translateX(-10px);
+  }
+  to {
+    transform: translateX(1500px);
+  }
+}
+
+@keyframes apparition {
+  from {
+    transform: translateX(-300px);
+  }
+  to {
+    transform: translateX(10px);
   }
 }

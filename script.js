@@ -115,6 +115,8 @@ const afficherQuestion = () => {
   if (timer !== undefined) {
     clearInterval(timer);
   }
+  textQuestion.classList.remove("sortant");
+  imgQuestion.classList.remove("sortant");
   const q = questions[indexCourant];
   numQuestion.textContent = `Question ${indexCourant + 1} /10`;
   timer = setInterval(() => {
@@ -129,6 +131,8 @@ const afficherQuestion = () => {
       questionSuivante();
     }
   }, 1000);
+  textQuestion.classList.add("entrant");
+  imgQuestion.classList.add("entrant");
   textQuestion.textContent = q.question;
   imgQuestion.src = q.image;
   imgQuestion.alt = q.altImage;
@@ -263,7 +267,11 @@ btnCommencer.addEventListener("click", () => {
 const questionSuivante = () => {
   if (indexCourant < 10) {
     spinner.classList.add("spinner");
-    afficherQuestion();
+    textQuestion.classList.remove("entrant");
+    imgQuestion.classList.remove("entrant");
+    textQuestion.classList.add("sortant");
+    imgQuestion.classList.add("sortant");
+    setTimeout(afficherQuestion, 2000);
   } else {
     afficher(ecranResultats);
     afficherResultats();
