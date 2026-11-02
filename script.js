@@ -71,6 +71,7 @@ const afficher = (ecran) => {
 //   5. Cacher le bouton "Question suivante"
 //   6. Vider #liste-reponses, puis créer un bouton pour chaque réponse
 //      Chaque bouton doit appeler verifierReponse() au clic
+
 //algo de fisher yates
 const melange = (tab) => {
   let j;
@@ -96,7 +97,6 @@ const indice = (bouton, index) => {
 const compteurMouvement = (bouton, index) => {
   if (nbMouvement <= 150) {
     nbMouvement++;
-    console.log(nbMouvement);
   } else {
     indice(bouton, index);
   }
