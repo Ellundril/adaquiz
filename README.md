@@ -4,6 +4,8 @@ By Julien Maret et Violaine Seyroux
 
 Un quiz de 10 questions pour tester vos connaissances sur les sportives et sportifs français.
 
+Pour jouer au [quiz en ligne](https://adaquiz-sportifs-francais.netlify.app)
+
 ## Langages utilisés
 
 - HTML
